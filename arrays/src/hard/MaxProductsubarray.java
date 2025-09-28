@@ -31,4 +31,9 @@ public class MaxProductsubarray {
         return res;
 
     }
+
+    public static void main(String[] args) {
+        new MaxProductsubarray().maxProductOptimal(new int[]{1,2,3,4,5});
+        new MaxProductsubarray().maxProduct(new int[]{1,2,3,4,5});
+    }
 }

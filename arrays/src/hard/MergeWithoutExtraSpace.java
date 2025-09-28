@@ -52,7 +52,7 @@ public class MergeWithoutExtraSpace {
         for (int ii : nums1) System.out.print(ii + " ");
         for (int jj : nums2) System.out.print(jj + " ");
     }
-    public static void swap(int arr1[],int arr2[],int i,int j){
+    public static void swap(int[] arr1, int[] arr2, int i, int j){
         int temp=arr1[i];
         arr1[i]=arr2[j];
         arr2[j]=temp;
