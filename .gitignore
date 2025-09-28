@@ -27,7 +27,7 @@ replay_pid*
 /out/
 /target/
 /build/
-*.class
+
 
 # IntelliJ
 .idea/
