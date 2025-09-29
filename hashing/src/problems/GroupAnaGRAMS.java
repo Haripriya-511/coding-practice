@@ -3,6 +3,7 @@ package problems;
 import java.util.*;
 
 public class GroupAnaGRAMS {
+    // with sorting
     public List<List<String>> groupAnagrams(String[] strs) {
 
         Map<String,List<String>> map=new HashMap<>();
@@ -14,6 +15,7 @@ public class GroupAnaGRAMS {
         }
         return new ArrayList<>(map.values());
     }
+    //without sorting
     public List<List<String>> groupAnagrams2(String[] strs) {
 
         Map<String,List<String>> map=new HashMap<>();
