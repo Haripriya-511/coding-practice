@@ -1,6 +1,7 @@
-package problems;
+package problems.prefix;
 
 public class ProductArrayExceptSelf {
+    //brute
     public int[] productExceptSelf(int[] nums) {
         int n=nums.length;
         int res[]=new int[n];
@@ -16,28 +17,8 @@ public class ProductArrayExceptSelf {
         return res;
 
     }
+    //better
     public int[] productExceptSelf2(int[] nums){
-        int n=nums.length;
-        if(n==0) return new int[0];
-        if(n==1) return new int[]{nums[0]};
-        int res[]=new int[n];
-
-        res[0]=1;
-        int suffix=1;
-        for(int i=1;i<n;i++){
-            res[i]=res[i-1]*nums[i-1];
-        }
-        for(int i=n-1;i>=0;i--){
-          res[i]*=suffix;
-          suffix*=nums[i];
-        }
-
-        for(int i:res)
-            System.out.print(i+" ");
-        return res;
-
-    }
-    public int[] productExceptSelf3(int[] nums){
         int zero_count=0;
         int n=nums.length;
         int res[]=new int[n];
@@ -64,10 +45,52 @@ public class ProductArrayExceptSelf {
             else
                 res[i]=0;
         }
-        for(int i:res)
-            System.out.print(i+" ");
         return res;
     }
+    // better 2
+    public int[] productExceptSelf3(int[] nums){
+        int n=nums.length;
+        if(n==0) return new int[0];
+        if(n==1) return new int[]{nums[0]};
+        int pre[]=new int[n];
+        int suff[]=new int[n];
+        int res[]=new int[n];
+
+        pre[0]=1;
+
+        for(int i=1;i<n;i++){
+            pre[i]=pre[i-1]*nums[i-1];
+        }
+        suff[n-1]=1;
+        for(int i=n-2;i>=0;i--){
+            suff[i]=suff[i+1]*nums[i+1];
+        }
+        for(int i=0;i<n;i++){
+            res[i]=pre[i]*suff[i];
+        }
+        return res;
+
+    }
+    //optimal
+    public int[] productExceptSelf4(int[] nums){
+        int n=nums.length;
+        if(n==0) return new int[0];
+        if(n==1) return new int[]{nums[0]};
+        int res[]=new int[n];
+
+        res[0]=1;
+        int suffix=1;
+        for(int i=1;i<n;i++){
+            res[i]=res[i-1]*nums[i-1];
+        }
+        for(int i=n-1;i>=0;i--){
+            res[i]*=suffix;
+            suffix*=nums[i];
+        }
+        return res;
+
+    }
+
 
     public static void main(String[] args) {
         int nums[]=new int[]{-1,1,0,-3,3};
