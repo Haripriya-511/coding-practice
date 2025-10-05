@@ -1,4 +1,4 @@
-package problems;
+package matrices;
 
 import java.util.HashSet;
 import java.util.Set;

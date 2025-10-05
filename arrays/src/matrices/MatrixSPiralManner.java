@@ -1,4 +1,4 @@
-package medium;
+package matrices;
 
 import java.util.*;
 public class MatrixSPiralManner {

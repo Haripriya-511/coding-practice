@@ -1,4 +1,4 @@
-package medium;
+package matrices;
 
 public class RotateBy90Degrees {
     public void rotateMatrix(int[][] matrix) {
